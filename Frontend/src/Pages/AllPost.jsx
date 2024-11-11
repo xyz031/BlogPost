@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 export default function AllPost() {
   const [posts,setPosts]=useState([])
   const [loadedata,setLoadedata]=useState(false)
+  const [res,setres]=useState(0)
 
 
   const handleDelete = async(postId) => {
@@ -16,7 +17,7 @@ export default function AllPost() {
    try {
      const response = await delet(`/blog/delete/${postId}`);
      const data = response.data;
-
+   
      if (data.success) {
        toast.success(data.message);
        setLoadedata(!loadedata); // Trigger reloading the data
@@ -47,6 +48,7 @@ export default function AllPost() {
       try {
           const resposne= await get("/blog/GetPosts")
           const data= resposne.data
+          setres(1)
          setPosts(data.posts)
           console.log(data)
       } catch (error) {
@@ -56,30 +58,40 @@ export default function AllPost() {
     getposts()
    },[loadedata])
   return (
-    <div className="container ">
-      <h1 className="text-center mb-4 text-white">All Posts</h1>
-      <div className="row">
-        {posts && posts.map((post) => (
-          <div className="col-md-4 mb-4" key={post.id}>
-            <div className="card h-100">
-              <img src={`${BaseUrl}/images/${post.image}`} className="card-img-top" alt={post.title} />
-              <div className="card-body">
-                <h5 className="card-title">{post.title}</h5>
-                <p className="card-text">{post.description}</p>
-              </div>
-              <div className="card-footer d-flex justify-content-center">
-                <button
-                  className="btn btn-danger"
-                  onClick={() => handleDelete(post._id)}
-                >
-                  <FaTrashAlt /> Delete
-                </button>
-             
-              </div>
-            </div>
+<>
+{(res==0)?( <div class="text-center ">
+  <div class="spinner-border text-white" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>):
+( <div className="container ">
+  <h1 className="text-center mb-4 text-white">All Posts</h1>
+  <div className="row">
+    {posts && posts.map((post) => (
+      <div className="col-md-4 mb-4" key={post.id}>
+        <div className="card h-100">
+          <img src={`${BaseUrl}/images/${post.image}`} className="card-img-top" alt={post.title} />
+          <div className="card-body">
+            <h5 className="card-title">{post.title}</h5>
+            <p className="card-text">{post.description}</p>
           </div>
-        ))}
+          <div className="card-footer d-flex justify-content-center">
+            <button
+              className="btn btn-danger"
+              onClick={() => handleDelete(post._id)}
+            >
+              <FaTrashAlt /> Delete
+            </button>
+         
+          </div>
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+ )
+}
+
+    </>
   );
 }
