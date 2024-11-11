@@ -1,5 +1,5 @@
 import axios from 'axios';
-export const BaseUrl='https://blogpost-9lfd.onrender.com'
+export const BaseUrl='http://localhost:5000'
 const instance = axios.create({
     baseURL:BaseUrl,
     // headers: {

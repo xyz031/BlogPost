@@ -67,19 +67,14 @@ export default function AllPost() {
                 <h5 className="card-title">{post.title}</h5>
                 <p className="card-text">{post.description}</p>
               </div>
-              <div className="card-footer d-flex justify-content-between">
+              <div className="card-footer d-flex justify-content-center">
                 <button
                   className="btn btn-danger"
                   onClick={() => handleDelete(post._id)}
                 >
                   <FaTrashAlt /> Delete
                 </button>
-                <button
-                  className="btn btn-warning"
-                  onClick={() => handleUpdate(post._id)}
-                >
-                  <FaEdit /> Update
-                </button>
+             
               </div>
             </div>
           </div>
