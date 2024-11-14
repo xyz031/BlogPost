@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export const BaseUrl='https://blogpost-9lfd.onrender.com'
 const instance = axios.create({
     baseURL:BaseUrl,
