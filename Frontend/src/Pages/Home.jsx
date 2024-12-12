@@ -4,20 +4,6 @@ import { get } from '../services/Endpoint';
 
 export default function Home() {
 
-const [res, setres] = useState(0)
-  useEffect(() => {
-    const fetchBlogs = async () => {
-        try {
-            const request = await get('/blog/GetPosts');
-           setres(1)
-           
-        } catch (error) {
-            console.log(error);
-        }
-    };
-    fetchBlogs();
-}, []);
-
   return (
     <>
       <div className="container-fluid bg-dark hero-section text-center">
@@ -27,19 +13,10 @@ const [res, setres] = useState(0)
         </p>
       </div>
 
-<div className='container-fluid bg-dark  p-5'>
+<div className='container-fluid  p-5'>
 
-<LatestPost />
+    <LatestPost />
 
-  {/* {(res==1)?():
-  (<div class="text-white d-flex justify-content-center">
-    <div class="spinner-border" role="status">
-      <span class="sr-only"></span>
-    </div>
-  </div>)
-  }
-     */}
-  
 </div>
     </>
   );

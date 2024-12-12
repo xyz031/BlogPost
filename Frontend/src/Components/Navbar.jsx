@@ -25,8 +25,8 @@ export default function Navbar() {
         }
     }
   return (
-    <nav className="navbar bg-dark d-flex justify-content-between   align-items-center p-3">
-      <Link to={'/'}><h1 className="mx-3 my-2 text-white fs-2 fw-semibold ">BlogPost</h1></Link>
+    <nav className="navbar d-flex justify-content-between   align-items-center p-3">
+      <Link to={'/'}><h1 className="mx-5 text-white fs-2 fw-bold">BlogPost</h1></Link>
       <div className="d-flex align-items-center">
         {!user ? <Link to={'/login'}><button className="btn_sign mx-3">Sign in</button></Link> : (
             <div className="dropdown">

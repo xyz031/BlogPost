@@ -7,8 +7,7 @@ import bcrypt from 'bcryptjs'
 
 const Register = async (req, res) => {
     try {
-        const {FullName,email,password,role}=req.body
-        console.log(role)
+        const {FullName,email,password}=req.body
         // Upload the image to Cloudinary
         const imagePath = req.file.filename;
         // const cloudinaryResult = await FileUploadeToColoudinary(imagePath, 'user_profiles');
@@ -24,7 +23,6 @@ const Register = async (req, res) => {
             email: email,
             password: hasePassword,
             profile: imagePath,
-            role: role,
         });
 
         // Save the user to the database

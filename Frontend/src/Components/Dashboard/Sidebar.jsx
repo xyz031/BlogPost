@@ -17,11 +17,11 @@ export default function Sidebar() {
               <FaPlusSquare className="me-2" /> Add Post
             </Link>
           </li>
-          {/* <li className="nav-item mb-3">
+          <li className="nav-item mb-3">
             <Link className="nav-link text-white" to="/dashboard/users">
               <FaUsers className="me-2" /> All Users
             </Link>
-          </li> */}
+          </li>
           <li className="nav-item mb-3">
             <Link className="nav-link text-white" to="/dashboard/allposts">
               <FaFileAlt className="me-2" /> All Posts

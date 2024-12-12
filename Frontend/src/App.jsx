@@ -7,7 +7,7 @@ import UserLayout from './Layout/UserLayout'
 import Admin from './Pages/Admin/Admin'
 import Adminlayout from './Layout/Adminlayout'
 import AddPost from './Pages/Admin/AddPost'
-
+import User from './Pages/Admin/User'
 import AllPost from './Pages/AllPost'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
@@ -32,7 +32,7 @@ export default function App() {
         <Route path='/dashboard' element={<Adminlayout/>}>
         <Route index element={<Admin/>}/>
         <Route path='addpost' element={<AddPost/>}/>
-    
+        <Route path='users' element={<User/>}/>
         <Route path='allposts' element={<AllPost/>}/>
         </Route>
    <Route path='/login' element={<Login/>}></Route>
